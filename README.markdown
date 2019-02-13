@@ -40,3 +40,6 @@ To type check your code using [Flow](flowtype.org), first [install Flow](http://
 #### Troubleshooting
 
 If you have any trouble with package caching due to `.babelrc`, run `rm -fr $TMPDIR/react-*`
+
+### TODOS
+- 1. Change navigation library from react-native `Navigator` to *reac-navigation*.
