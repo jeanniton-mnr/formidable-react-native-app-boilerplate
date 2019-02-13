@@ -1,38 +1,35 @@
 /* @flow */
 /*eslint-disable prefer-const */
 
-import React from "react-native";
-import { connect } from "react-redux/native";
+import React, {
+  Component
+} from 'react';
+import PropTypes from 'prop-types';
+import { connect } from "react-redux";
 import { fetchData } from "../actions";
 
-let {
+import {
   Text,
-  ScrollView
-} = React;
+  View
+} from 'react-native';
 
-class App extends React.Component {
+class App extends Component {
   componentDidMount() {
     this.props.dispatch(fetchData());
   }
   render() {
     return (
-      <ScrollView
-        style={{flex: 1}}
-        contentContainerStyle={{
-          justifyContent: "center",
-          alignItems: "center"
-        }}
-      >
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <Text>{this.props.isFetching ? "Loading" : this.props.message}</Text>
-      </ScrollView>
+      </View>
     );
   }
 }
 
 App.propTypes = {
-  dispatch: React.PropTypes.func,
-  message: React.PropTypes.string,
-  isFetching: React.PropTypes.bool
+  dispatch: PropTypes.func,
+  message: PropTypes.string,
+  isFetching: PropTypes.bool
 };
 
 App.defaultProps = {

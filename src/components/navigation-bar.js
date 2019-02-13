@@ -1,15 +1,20 @@
 /* @flow */
 /*eslint-disable prefer-const */
 
-import React from "react-native";
+import React, {
+  Component
+} from 'react';
 
-let {
+import PropTypes from 'prop-types';
+
+import {
   StatusBarIOS,
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
-} = React;
+  View,
+  PixelRatio
+} from 'react-native';
 
 const NAV_BAR_HEIGHT = 44;
 const STATUS_BAR_HEIGHT = 20;
@@ -21,7 +26,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     paddingBottom: 5,
     borderBottomColor: "rgba(0, 0, 0, 0.5)",
-    borderBottomWidth: 1 / React.PixelRatio.get()
+    borderBottomWidth: 1 / PixelRatio.get()
   },
   navBar: {
     height: NAV_HEIGHT,
@@ -62,7 +67,7 @@ const styles = StyleSheet.create({
   }
 });
 
-class NavigationBar extends React.Component {
+class NavigationBar extends Component {
   prevButtonShouldBeHidden(): Boolean {
     let {
       onPrev,
@@ -198,22 +203,22 @@ class NavigationBar extends React.Component {
 }
 
 NavigationBar.propTypes = {
-  backgroundStyle: React.PropTypes.object,
-  buttonsColor: React.PropTypes.string,
-  customNext: React.PropTypes.node,
-  customPrev: React.PropTypes.node,
-  customTitle: React.PropTypes.node,
-  hidePrev: React.PropTypes.bool,
-  navigator: React.PropTypes.object,
-  nextTitle: React.PropTypes.string,
-  onNext: React.PropTypes.func,
-  onPrev: React.PropTypes.func,
-  prevTitle: React.PropTypes.string,
-  route: React.PropTypes.object,
-  statusBar: React.PropTypes.string,
-  style: React.PropTypes.object,
-  title: React.PropTypes.string,
-  titleColor: React.PropTypes.string
+  backgroundStyle: PropTypes.object,
+  buttonsColor: PropTypes.string,
+  customNext: PropTypes.node,
+  customPrev: PropTypes.node,
+  customTitle: PropTypes.node,
+  hidePrev: PropTypes.bool,
+  navigator: PropTypes.object,
+  nextTitle: PropTypes.string,
+  onNext: PropTypes.func,
+  onPrev: PropTypes.func,
+  prevTitle: PropTypes.string,
+  route: PropTypes.object,
+  statusBar: PropTypes.string,
+  style: PropTypes.object,
+  title: PropTypes.string,
+  titleColor: PropTypes.string
 };
 
 export default NavigationBar;
